@@ -271,7 +271,7 @@
 							"\r",
 							"\r",
 							"\r",
-							"const data = [\r",
+							"const dataReceived = [\r",
 							"        \"_id\",\r",
 							"        \"orderById\",\r",
 							"        \"orderBy\",\r",
@@ -284,7 +284,7 @@
 							"        \"__v\"]\r",
 							"\r",
 							"pm.test(\"Validate the data has all the valid keys\", function(){\r",
-							"    pm.expect(pm.response.json().data).to.have.all.keys(data)\r",
+							"    pm.expect(pm.response.json().data).to.have.all.keys(dataReceived)\r",
 							"})\r",
 							"\r",
 							"pm.test(\"Validate success message\", function(){\r",
@@ -433,6 +433,30 @@
 			"response": []
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
 			"key": "userId",
@@ -452,7 +476,8 @@
 		},
 		{
 			"key": "productImage",
-			"value": "testdata/image.jpg"
+			"value": "testdata/image.jpg",
+			"type": "file"
 		}
 	]
 }
