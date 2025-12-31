@@ -81,11 +81,10 @@ newman run E2E ECommerce Application.postman_collection.json -g 'global variable
 ## CI/CD Integration with Jenkins
 
 Automated execution configured using Jenkins job
-1. Collection runs triggered via:
+1. Collection runs triggered via SCM -- checks for every 5 mins and SCM initiates a run for the commmits
 2. Manual build
-3. Scheduled execution
-4. Test results generated as HTML reports
-5. Job configured to support parameterized runs
+3. Test results generated as HTML reports
+4. Job configured to support parameterized runs
 
 ## Project Highlights
 
