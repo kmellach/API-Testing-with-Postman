@@ -1,4 +1,5 @@
 # Postman API Automation – Dummy E-Commerce Application
+File in Repo:  E2E ECommerce Application.postman_collection.json
 
 ## Project Overview
 
