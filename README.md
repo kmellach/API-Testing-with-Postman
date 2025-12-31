@@ -1,100 +1,91 @@
-# Postman API Automation – Dummy E-Commerce Application
-File in Repo:  E2E ECommerce Application.postman_collection.json
+# API Automation Projects – Postman | Newman | Jenkins
 
-## Project Overview
+This repository contains API automation frameworks built using Postman, with CLI execution via Newman and CI/CD integration using Jenkins.
+The projects demonstrate real-world API testing practices including token-based authorization, multi-environment execution, data-driven testing, and automated reporting.
 
-This project is an end-to-end API automation framework built using Postman for a dummy E-Commerce application.
-The framework validates core business flows such as product management and order processing, with complete parameterization, token-based authorization, and CI/CD execution using Jenkins.
+## Project 1: Dummy E-Commerce API Automation
+### Overview
+End-to-end API automation for a dummy E-Commerce application validating product and order workflows using Postman.
 
-The project is designed to validate core backend functionalities and ensure API reliability using Postman’s scripting and collection features.
+### Features Covered
+1. Create Product
+2. Create Order
+3. Get Order Details
+4. Delete Order
+5. Delete Product
 
+### Authorization
+1. Token-based authentication
+2. Tokens passed dynamically via headers
 
-## Scope of Testing
+### Parameterization
+1. Collection & environment variables
+2. Reusable and environment-agnostic design
 
-The following E-Commerce functionalities are covered:
+### Execution
+1. Manual execution via Postman
+2. CLI execution via Newman
+3. Automated execution using Jenkins (SCM-triggered & manual)
 
-* ✅ Create Product
-* ✅ Add Product
-* ✅ Create Order
-* ✅ Get Order Details
-* ✅ Delete Order
+## Project 2: Library Management API Automation
+### Overview
+API automation framework for a Library Management system with multi-environment support, global variables, and data-driven execution.
 
-Each API is validated with **test scripts** for:
+### Features Covered
+1. Add Book
+2. Get Book Details
+3. Delete Book
 
-* Status code verification
-* Response body validation
-* Data consistency
-* Authorization handling
+### Multi-Environment Support
+* Dev / QA environments
+* Environment switching without code changes
 
+### Data-Driven Testing
+1. External data files for multiple test scenarios
+2. Scalable execution using Newman
 
-## Authorization Handling
+### Common Tools & Technologies
+1. Postman – API design & automation
+2. Newman – CLI execution
+3. Jenkins – CI/CD pipeline
+4. JavaScript – Test scripting
+5. REST APIs – Backend testing
 
-* Authentication is implemented using **token-based authorization**
-* Tokens are passed dynamically through **request headers**
-* Authorization is reusable and configurable across environments
+### Running Tests Using Newman
+1. E-Commerce Project: 
+newman run E2E ECommerce Application.postman_collection.json -r htmlextra
 
-## Parameterization
+2. Library Project: 
+newman run Library.postman_collection.json
+-e  QA.postman_environment.json
+-g workspace.postman_globals.json
+-d Books_Data.csv
+-r htmlextra
 
-All dynamic data is parameterized using:
-Collection variables
-Environment variables
+### CI/CD Integration with Jenkins
+1. Jenkins jobs configured on local Jenkins server
+2. Builds triggered via:
+ a. Poll SCM (every 5 minutes)
+ b. Manual build
+3. Jobs support:
+ a. Parameterized execution
+ b. Environment selection
 
-Common parameters include:
-Product IDs
-Order IDs
-User data
-Authentication tokens
+HTML reports generated and archived per build
 
-Enables seamless execution across multiple environments
+### Reporting
+Newman HTML reports generated after each execution
+Reports stored in Jenkins workspace
+Accessible via Jenkins build history
 
-## Test Automation Features
-
-* Postman **Pre-request scripts** for data setup
-* **Test scripts** for assertions and validations
-* Reusable variables for scalability
-* Modular request design for maintainability
-* Supports both manual execution and automated runs
-
-## Tools & Technologies Used
-
-1. **Postman** – API design and automation
-2. **Newman** – CLI execution of Postman collections
-3. **Jenkins** – CI/CD pipeline automation
-4. **JavaScript** – Test scripting
-5. **REST APIs** – Backend testing
-
-## How to Run the Collection
-
-1. Import the **Postman Collection** into Postman
-2. Import the **Environment file**
-3. Set the required variables:
-
-   * `baseUrl`
-   * `authToken`
-4. Run individual requests or execute the entire collection using **Collection Runner**
-
-## Running Tests Using Newman
-
-Execute the collection from command line:
-newman run E2E ECommerce Application.postman_collection.json -g 'global variables config (if any)'
-
-## CI/CD Integration with Jenkins
-
-Automated execution configured using Jenkins job
-1. Collection runs triggered via SCM -- checks for every 5 mins and SCM initiates a run for the commits
-2. Manual build
-3. Test results generated as HTML reports
-4. Job configured to support parameterized runs
-
-## Project Highlights
-
-1. End-to-end API automation coverage
-2. Token-based secure authorization
-3. Fully parameterized and reusable design
-4. CLI execution using Newman
-5. CI/CD integration with Jenkins
-6. Production-ready testing approach
+## Highlights
+1. Multiple projects in a single repository
+2. Real-world API automation scenarios
+3. CI/CD-ready framework
+4. Parameterized and reusable test design
 
 ## Future Enhancements
-* Negative and edge-case test coverage
-* Extended Email Notifications from Jenkins
+1. Allure report integration
+2. Negative and edge-case validations
+3. Dockerized execution
+4. GitHub Actions integration
