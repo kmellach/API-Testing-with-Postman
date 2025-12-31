@@ -75,7 +75,7 @@ Enables seamless execution across multiple environments
 ## Running Tests Using Newman
 
 Execute the collection from command line:
-
+newman run E2E ECommerce Application.postman_collection.json -g 'global variables config (if any)'
 
 ## CI/CD Integration with Jenkins
 
